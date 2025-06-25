@@ -58,13 +58,12 @@ function Calendar() {
     startTime: "",
     endTime: "",
   });
-  const [viewMode, setViewMode] = useState("month"); // "month" or "year"
-  // Use local state for events so new events can be added
+  const [viewMode, setViewMode] = useState("month"); 
+
   const [events, setEvents] = useState(eventsData);
 
   const monthMatrix = getMonthMatrix(year, month);
 
-  // Filter events based on selectedDate
   const filteredEvents = selectedDate
     ? events.filter(
         (event) => event.date === dayjs(selectedDate).format("YYYY-MM-DD")
@@ -123,7 +122,6 @@ function Calendar() {
   const years = [];
   for (let y = 2000; y <= 2100; y++) years.push(y);
 
-  // Add Event Popup Handlers
   const handleAddEventClick = () => {
     setShowAddPopup(true);
     setNewEvent({
